@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Vuitton - Luxury Showcase</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. CSS Reset & Root Variables (Adapted to Dark Luxury Theme)
+           ========================================================================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --font-heading: 'Bodoni Moda', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            
+            --bg-main: #0d0d0e;
+            --bg-card: #161618;
+            --bg-gradient: radial-gradient(circle at 60% 40%, #2a2a2e 0%, #111113 50%, #080809 100%);
+            --border-color: #26262a;
+            --text-primary: #ffffff;
+            --text-secondary: #aaaaaa;
+            --text-muted: #666666;
+            --accent-gold: #c5a059;
+            --error-red: #d9381e;
+            --success-green: #2e7d32;
+            
+            --container-width: 1200px;
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        html {
+            font-size: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-main);
+            background-image: var(--bg-gradient);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ==========================================================================
+           2. Top Bar & Header Navigation
+           ========================================================================== */
+        .top-bar {
+            background-color: #000000;
+            color: var(--accent-gold);
+            text-align: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .main-header {
+            background-color: rgba(13, 13, 14, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .brand-logo-header {
+            position: absolute;
+            left: 2rem;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a:focus {
+            color: var(--text-primary);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        /* ==========================================================================
+           3. Hero Section (Matched Exact Aesthetic of Image)
+           ========================================================================== */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 500px;
+            text-align: left;
+        }
+
+        /* Monogram SVG Icon matching LV style */
+        .lv-monogram {
+            width: 110px;
+            height: 110px;
+            margin-bottom: 0.5rem;
+            fill: currentColor;
+            color: #ffffff;
+        }
+
+        .hero-brand-title {
+            font-family: var(--font-body);
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+        }
+
+        .hero-title {
+            font-family: var(--font-body);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+            color: #d1d1d1;
+            line-height: 1.2;
+        }
+
+        .hero-price {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-style: italic;
+            font-family: var(--font-heading);
+        }
+
+        .hero-description {
+            font-size: 0.95rem;
+            color: #888888;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ffffff;
+            color: #111111;
+            border: none;
+            padding: 0.85rem 2.2rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .add-to-cart-btn:hover {
+            transform: translateY(-2px);
+            background-color: #e6e6e6;
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Right Side Display Graphic */
+        .hero-display {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Aura circles background effect */
+        .aura-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+        .aura-1 { width: 340px; height: 340px; top: 10%; right: 15%; background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%); }
+        .aura-2 { width: 220px; height: 220px; bottom: 5%; right: 5%; background: radial-gradient(circle, rgba(197,160,89,0.05) 0%, transparent 70%); }
+        .aura-3 { width: 180px; height: 180px; top: 35%; left: 10%; border: 1px dashed rgba(255, 255, 255, 0.1); }
+
+        .hero-bag-svg {
+            width: 100%;
+            max-width: 440px;
+            height: auto;
+            filter: drop-shadow(0 25px 35px rgba(0,0,0,0.7));
+            transition: transform 0.6s ease-out;
+            animation: float 6s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
+        }
+
+        /* ==========================================================================
+           4. Main Content Layout & Search Feature
+           ========================================================================== */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 5.5rem;
+        }
+
+        .search-container-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .search-bar-wrapper input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            font-size: 1rem;
+            background: #0d0d0e;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .search-bar-wrapper input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-number {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--accent-gold);
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 400;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .section-lead {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .summary-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            border-radius: 4px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pillar-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        .pillar-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pillar-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .timeline-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.75rem;
+            position: relative;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-item:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .year-badge {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .responsive-img-wrapper {
+            width: 100%;
+            height: 240px;
+            background: #111113;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .responsive-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .responsive-img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+            color: #ffffff;
+        }
+
+        .product-info p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .product-price {
+            font-family: var(--font-heading);
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .directors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .director-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .director-card:hover {
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .director-role {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .director-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .director-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================================================
+           5. Form Styling & JavaScript Validation States
+           ========================================================================== */
+        .styled-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 6px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 1rem;
+            background-color: #0d0d0e;
+            color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+        }
+
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        .submit-btn {
+            background-color: var(--accent-gold);
+            color: #000000;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #d6b26a;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .success-banner {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: rgba(46, 125, 50, 0.15);
+            border: 1px solid var(--success-green);
+            color: #81c784;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Notification Toast */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-gold);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 3000;
+        }
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ==========================================================================
+           6. Lightbox Modal Styles
+           ========================================================================== */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox-content-container {
+            position: relative;
+            max-width: 80%;
+            max-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+
+        #lightboxCaption {
+            color: var(--accent-gold);
+            margin-top: 1.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            letter-spacing: 0.05em;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2.5rem;
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent-gold);
+        }
+
+        /* ==========================================================================
+           7. Footer & Responsive Media Queries
+           ========================================================================== */
+        .main-footer {
+            background-color: #080809;
+            color: #FFFFFF;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        @media screen and (max-width: 1023px) {
+            .pillars-grid,
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .timeline-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .brand-logo-header {
+                position: static;
+            }
+            .nav-menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.2rem;
+            }
+            .hero {
+                padding: 3rem 1.5rem;
+                min-height: auto;
+            }
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content {
+                margin: 0 auto;
+                text-align: center;
+            }
+            .lv-monogram {
+                margin: 0 auto 0.5rem auto;
+            }
+            .main-container {
+                padding: 3rem 1.25rem;
+            }
+            .pillars-grid,
+            .timeline-container,
+            .product-grid,
+            .directors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        Complimentary Express Worldwide Delivery & Private Atelier Services
+    </div>
+
+    <!-- Sticky Main Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="brand-logo-header">LV</a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Matches visual layout of provided image) -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <!-- Left Hero Content -->
+            <div class="hero-content">
+                <!-- LV Interlocking Monogram Logo -->
+                <svg class="lv-monogram" viewBox="0 0 100 100">
+                    <path d="M 20,15 L 45,85 L 60,85 L 35,15 Z" fill="#ffffff" />
+                    <path d="M 40,15 L 85,15 L 85,30 L 70,30 L 70,85 L 52,85 L 52,30 L 40,30 Z" fill="#ffffff" />
+                </svg>
+                
+                <h2 class="hero-brand-title">Louis Vuitton</h2>
+                <h1 class="hero-title">It's not just a fashion</h1>
+                
+                <div class="hero-price">$99</div>
+                
+                <p class="hero-description">
+                    We only deserve the best- class cannot be replicated. A world of elegance inspiration, innovation.
+                </p>
+                
+                <button class="add-to-cart-btn" onclick="triggerCartNotification()">Add to Cart</button>
+            </div>
+
+            <!-- Right Hero Display (Floating Bag with Graphic Aura) -->
+            <div class="hero-display">
+                <div class="aura-circle aura-1"></div>
+                <div class="aura-circle aura-2"></div>
+                <div class="aura-circle aura-3"></div>
+                
+                <!-- Detailed SVG Graphic of High-End Luxury Monogram Bag -->
+                <svg class="hero-bag-svg" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Drop Shadow Base -->
+                    <ellipse cx="250" cy="370" rx="160" ry="15" fill="#000000" opacity="0.6" filter="blur(10px)"/>
+                    
+                    <!-- Handles Behind -->
+                    <path d="M 180 160 C 180 60, 320 60, 320 160" stroke="#E5C383" stroke-width="22" stroke-linecap="round" fill="none"/>
+                    <path d="M 180 160 C 180 60, 320 60, 320 160" stroke="#D1A75B" stroke-width="16" stroke-linecap="round" fill="none"/>
+
+                    <!-- Main Bag Body -->
+                    <path d="M 100 160 C 100 145, 115 140, 130 140 L 370 140 C 385 140, 400 145, 400 160 L 420 320 C 425 345, 405 360, 380 360 L 120 360 C 95 360, 75 345, 80 320 Z" fill="url(#bagPattern)"/>
+                    <path d="M 100 160 C 100 145, 115 140, 130 140 L 370 140 C 385 140, 400 145, 400 160 L 420 320 C 425 345, 405 360, 380 360 L 120 360 C 95 360, 75 345, 80 320 Z" fill="black" opacity="0.15"/>
+
+                    <!-- Leather Trim & Handles Front Attachment -->
+                    <!-- Left Tab -->
+                    <path d="M 170 140 L 190 140 L 195 210 L 180 230 L 165 210 Z" fill="#E5C383"/>
+                    <circle cx="180" cy="155" r="4" fill="#B38738"/>
+                    <circle cx="180" cy="205" r="4" fill="#B38738"/>
+                    
+                    <!-- Right Tab -->
+                    <path d="M 310 140 L 330 140 L 335 210 L 320 230 L 305 210 Z" fill="#E5C383"/>
+                    <circle cx="320" cy="155" r="4" fill="#B38738"/>
+                    <circle cx="320" cy="205" r="4" fill="#B38738"/>
+
+                    <!-- Front Zipper Line & Gold Hardware -->
+                    <path d="M 130 140 L 370 140" stroke="#C5A059" stroke-width="4"/>
+                    
+                    <!-- Keybell Padlock Accessory -->
+                    <path d="M 320 220 L 330 240 L 320 260 L 310 240 Z" fill="#E5C383"/>
+                    <rect x="316" y="240" width="8" height="15" rx="2" fill="#D4AF37"/>
+
+                    <!-- Monogram Pattern Definition -->
+                    <defs>
+                        <pattern id="bagPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+                            <rect width="60" height="60" fill="#3B2314"/>
+                            <!-- LV Star / Diamond motifs -->
+                            <g fill="#C5A059" opacity="0.85">
+                                <circle cx="15" cy="15" r="3"/>
+                                <path d="M 45 15 L 48 10 L 45 5 L 42 10 Z"/>
+                                <path d="M 15 45 L 20 45 L 15 50 L 10 45 Z"/>
+                                <circle cx="45" cy="45" r="4" stroke="#C5A059" stroke-width="1" fill="none"/>
+                                <!-- Mini LV monogram -->
+                                <text x="12" y="32" font-family="'Bodoni Moda', serif" font-size="10" font-weight="bold">LV</text>
+                                <text x="42" y="32" font-family="'Bodoni Moda', serif" font-size="10" font-weight="bold">LV</text>
+                            </g>
+                        </pattern>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Container Layout -->
+    <main class="main-container">
+
+        <!-- 0. Live Search Feature -->
+        <section class="section">
+            <div class="search-container-box">
+                <div class="search-bar-wrapper">
+                    <input type="text" id="liveSearchInput" placeholder="Search luxury products, pillars, or history..." onkeyup="filterContent()">
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. Executive Summary -->
+        <section class="section" id="about">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>Executive Summary</h2>
+            </div>
+            <p class="section-lead">The pinnacle of French craftsmanship, heritage innovation, and timeless distinction.</p>
+            <div class="summary-card searchable-item">
+                Founded in 1854, Louis Vuitton revolutionized luxury travel with the creation of light, airtight, and flat-topped trunks. Today, the Maison continues to blend creative boldness with uncompromised quality, extending its universe to leather goods, ready-to-wear, timepieces, fine jewelry, and fragrance.
+            </div>
+        </section>
+
+        <!-- 2. Four Pillars -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Four Pillars of Distinction</h2>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card searchable-item">
+                    <span class="pillar-tag">Heritage</span>
+                    <h3>Savoir-Faire</h3>
+                    <p>Centuries of refined leather working and trunk-making techniques preserved in historic French workshops.</p>
+                </div>
+                <div class="pillar-card searchable-item">
+                    <span class="pillar-tag">Design</span>
+                    <h3>Innovation</h3>
+                    <p>Pushing artistic boundaries through iconic collaborations with world-renowned contemporary visionaries.</p>
+                </div>
+                <div class="pillar-card searchable-item">
+                    <span class="pillar-tag">Quality</span>
+                    <h3>Excellence</h3>
+                    <p>Rigorous selection of rare materials crafted to endure generations of global exploration.</p>
+                </div>
+                <div class="pillar-card searchable-item">
+                    <span class="pillar-tag">Future</span>
+                    <h3>Sustainability</h3>
+                    <p>Committed to eco-conception, responsible sourcing, and preserving biodiversity through circular luxury.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Historical Timeline -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Maison Chronology</h2>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item searchable-item">
+                    <div class="year-badge">1854</div>
+                    <div class="timeline-content">
+                        <h4>Founding of the Maison</h4>
+                        <p>Louis Vuitton opens his first atelier near Place Vendôme in Paris, pioneering flat trunks.</p>
+                    </div>
+                </div>
+                <div class="timeline-item searchable-item">
+                    <div class="year-badge">1896</div>
+                    <div class="timeline-content">
+                        <h4>Monogram Canvas Created</h4>
+                        <p>Georges Vuitton designs the world-famous interlocking LV monogram pattern to honor his late father.</p>
+                    </div>
+                </div>
+                <div class="timeline-item searchable-item">
+                    <div class="year-badge">2024+</div>
+                    <div class="timeline-content">
+                        <h4>Modern Renaissance</h4>
+                        <p>Unifying high-fashion, digital innovation, and architectural landmark destinations globally.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Featured Collection (Product Grid) -->
+        <section class="section" id="collection">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Curated Masterpieces</h2>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card searchable-item">
+                    <div class="responsive-img-wrapper" onclick="openLightbox('https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80', 'Speedy Bandoulière Monogram')">
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Speedy Monogram" class="responsive-img" onerror="this.src='https://placehold.co/600x400/161618/C5A059?text=Speedy+Monogram'">
+                    </div>
+                    <div class="product-info">
+                        <h3>Speedy Bandoulière</h3>
+                        <p>Iconic canvas with natural cowhide leather trim.</p>
+                        <div class="product-price">$99.00</div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card searchable-item">
+                    <div class="responsive-img-wrapper" onclick="openLightbox('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80', 'Neverfull MM Tote')">
+                        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80" alt="Neverfull MM" class="responsive-img" onerror="this.src='https://placehold.co/600x400/161618/C5A059?text=Neverfull+MM'">
+                    </div>
+                    <div class="product-info">
+                        <h3>Neverfull MM</h3>
+                        <p>Timeless design paired with spacious elegance.</p>
+                        <div class="product-price">$120.00</div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card searchable-item">
+                    <div class="responsive-img-wrapper" onclick="openLightbox('https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80', 'Petite Malle Trunk')">
+                        <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80" alt="Petite Malle" class="responsive-img" onerror="this.src='https://placehold.co/600x400/161618/C5A059?text=Petite+Malle'">
+                    </div>
+                    <div class="product-info">
+                        <h3>Petite Malle</h3>
+                        <p>Crafted trunk miniaturized for evening distinction.</p>
+                        <div class="product-price">$150.00</div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card searchable-item">
+                    <div class="responsive-img-wrapper" onclick="openLightbox('https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=800&q=80', 'Capucines Mini Leather')">
+                        <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80" alt="Capucines Mini" class="responsive-img" onerror="this.src='https://placehold.co/600x400/161618/C5A059?text=Capucines+Mini'">
+                    </div>
+                    <div class="product-info">
+                        <h3>Capucines Mini</h3>
+                        <p>Full-grain Taurillon leather with golden LV crest.</p>
+                        <div class="product-price">$180.00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Directors Section -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Creative Leadership</h2>
+            </div>
+            <div class="directors-grid">
+                <div class="director-card searchable-item">
+                    <span class="director-role">Men's Creative Director</span>
+                    <h3>Pharrell Williams</h3>
+                    <p>Infusing pop culture, visionary music influence, and contemporary street elegance into modern menswear lines.</p>
+                </div>
+                <div class="director-card searchable-item">
+                    <span class="director-role">Women's Artistic Director</span>
+                    <h3>Nicolas Ghesquière</h3>
+                    <p>Blending futuristic architecture, historical silhouettes, and unparalleled tailoring across women's collections.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Atelier Concierge Form -->
+        <section class="section" id="contact">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2>Atelier Inquiry</h2>
+            </div>
+            
+            <form class="styled-form" id="conciergeForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="e.g. Lord/Lady Montgomery">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailAddress">Email Address</label>
+                    <input type="email" id="emailAddress" placeholder="client@domain.com">
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="inquiryType">Inquiry Category</label>
+                    <select id="inquiryType">
+                        <option value="">Select Category...</option>
+                        <option value="bespoke">Bespoke Trunk Customization</option>
+                        <option value="private">Private VIP Salon Appointment</option>
+                        <option value="order">Order Assistance</option>
+                    </select>
+                    <span class="error-message" id="categoryError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Personal Message</label>
+                    <textarea id="message" rows="4" placeholder="Detail your specific requests or inquiries..."></textarea>
+                    <span class="error-message" id="messageError"></span>
+                </div>
+
+                <button type="submit" class="submit-btn">Request Private Consultation</button>
+                <div id="formSuccessBanner" class="success-banner" style="display: none;">
+                    Thank you. Your request has been transmitted to our VIP Client Concierge team.
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content-container">
+            <img class="lightbox-content" id="lightboxImg" src="" alt="Enlarged view">
+        </div>
+        <div id="lightboxCaption"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-notification">Item added to your shopping bag</div>
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="footer-logo">LOUIS VUITTON</div>
+        <div class="copyright">&copy; 2026 LOUIS VUITTON. All Rights Reserved. Exemplary Luxury Craftsmanship.</div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Form Validation & Handling
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            let isValid = true;
+            
+            // Elements
+            const name = document.getElementById('fullName');
+            const email = document.getElementById('emailAddress');
+            const category = document.getElementById('inquiryType');
+            const message = document.getElementById('message');
+            
+            // Reset Errors
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('categoryError').textContent = '';
+            document.getElementById('messageError').textContent = '';
+            document.getElementById('formSuccessBanner').style.display = 'none';
+
+            // Validate Name
+            if (!name.value.trim()) {
+                document.getElementById('nameError').textContent = 'Please enter your full name.';
+                isValid = false;
+            }
+
+            // Validate Email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailPattern.test(email.value)) {
+                document.getElementById('emailError').textContent = 'Please provide a valid email address.';
+                isValid = false;
+            }
+
+            // Validate Category
+            if (!category.value) {
+                document.getElementById('categoryError').textContent = 'Please select an inquiry category.';
+                isValid = false;
+            }
+
+            // Validate Message
+            if (!message.value.trim()) {
+                document.getElementById('messageError').textContent = 'Please provide a brief message.';
+                isValid = false;
+            }
+
+            if (isValid) {
+                document.getElementById('formSuccessBanner').style.display = 'block';
+                document.getElementById('conciergeForm').reset();
+            }
+        }
+
+        // Live Filter/Search Functionality
+        function filterContent() {
+            const input = document.getElementById('liveSearchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.searchable-item');
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Lightbox Gallery Functions
+        function openLightbox(imageSrc, captionText) {
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            const caption = document.getElementById('lightboxCaption');
+            
+            modal.style.display = 'flex';
+            img.src = imageSrc;
+            caption.textContent = captionText;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').style.display = 'none';
+        }
+
+        // Add to Cart Notification Toast
+        function triggerCartNotification() {
+            const toast = document.getElementById('toastNotification');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Escape Key Closes Modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
